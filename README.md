@@ -119,3 +119,41 @@ create_table('PAYMENT_', 'create_replace', col_type, df)
 cur.close()
 
 
+
+
+
+
+
+
+
+
+
+import requests
+import pandas as dp
+import json
+
+url = "https://restful.mcidirecthire.com/api/DataExtraction/GetJobFields"
+
+jwt_token = "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiaWduaXRpb24iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTYWdlIiwiZXhwIjoxNjk1ODkxNDQwLCJpc3MiOiJodHRwczovL3Jlc3RmdWwubWNpZGlyZWN0aGlyZS5jb20iLCJhdWQiOiJodHRwczovL3Jlc3RmdWwubWNpZGlyZWN0aGlyZS5jb20ifQ.hu0e26OL01obQSN3waIADOl3E71ME69NqKtSkTWW_kc"
+
+
+headers = {
+    "Authorization": f"Bearer {jwt_token}",
+    "Content-Type": "application/json"
+}
+
+
+
+payload = {
+    "dateFrom": "2023-09-01", 
+    "daysToReportOn": 90  
+}
+
+
+
+response = requests.post(url, headers=headers, json=payload)
+
+
+print("Response Content:")
+print(response.text)
+
