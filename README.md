@@ -119,3 +119,14 @@ create_table('PAYMENT_', 'create_replace', col_type, df)
 cur.close()
 
 
+
+
+
+
+
+import requests
+import pandas as dp
+import json
+
+
+
